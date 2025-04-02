@@ -22,7 +22,7 @@ A basic CLI C++ IDE on linux **with a timer**
 make
 luogu-solve
 ```
-生成的可执行文件(luogu-solve)会自动用`sudo`放进`/usr/local/bin/`里，若不想这么做就运行以下命令来只编译可执行文件。
+生成的可执行文件(luogu-solve)会自动借助`sudo`放进`/usr/local/bin/`里，若不想这么做就运行以下命令来只编译可执行文件。
 ```bash
 make luogu-solve
 ```
