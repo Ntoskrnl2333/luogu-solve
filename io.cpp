@@ -30,7 +30,7 @@ void clear_buffer() {
 }
 
 // 从指定文件流读取字符串并在读到指定字符时停止（字符串不包含指定字符）
-void get_string(char *str,const char stop='\n',FILE *fp=stdin){
+void get_string(char *str,const char stop,FILE *fp){
 	char ch;
 	while(true){
 		ch=fgetc(fp);

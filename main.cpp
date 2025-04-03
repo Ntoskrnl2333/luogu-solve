@@ -25,15 +25,12 @@ time_t ett;      // 记录结束时间的时间戳
 
 int ds;          // 记录总时长的秒数
 int dm;          // 记录总时长的分钟数
-int p;           // 用于在读取问题编号或源文件时的字符位置
 
 
 int main() {
     // 获取问题编号
     printf("Problem Number: ");
-    p = 0;
-    while ((pn[p] = getchar()) != '\n') p++;
-    pn[p] = 0;
+    get_string(pn);
 
     init();
 

@@ -12,6 +12,7 @@ extern void clear_buffer(); // 清除输入缓冲区的函数，避免残留字�
 extern bool load_swap(char *bt,time_t *btt);
 extern void store_swap(const char *bt,time_t btt);
 extern void init(); //初始化
+extern void get_string(char *str,const char stop='\n',FILE *fp=stdin); // 从指定文件流读取字符串并在读到指定字符时停止（字符串不包含指定字符）
 extern int main();
 
 // 定义用于存储各类信息的字符串缓冲区
@@ -36,7 +37,6 @@ extern time_t ett;      // 记录结束时间的时间戳
 
 extern int ds;          // 记录总时长的秒数
 extern int dm;          // 记录总时长的分钟数
-extern int p;           // 用于在读取问题编号或源文件时的字符位置
 
 #endif //_LUOGU_SOLVE_
 
