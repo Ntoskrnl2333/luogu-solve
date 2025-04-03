@@ -16,5 +16,5 @@ luogu-solve: main.o init.o io.o util.o swap.o
 	$(CXX) $< -o $@ $(CXXFLAGS) -c
 
 config: luogu-solve
-	sudo mv luogu-solve /usr/local/bin
+	sudo cp luogu-solve /usr/local/bin
 
