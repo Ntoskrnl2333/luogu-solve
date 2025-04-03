@@ -29,3 +29,15 @@ void clear_buffer() {
     while ((ch = getchar()) != '\n' && ch != EOF); // 读取直到换行符或 EOF
 }
 
+// 从指定文件流读取字符串并在读到指定字符时停止（字符串不包含指定字符）
+void get_string(char *str,const char stop,FILE *fp){
+	char ch;
+	while(true){
+		ch=fgetc(fp);
+		if(ch==stop || ch==EOF)
+			break;
+		*str=ch;
+		str++;
+	}
+	*str=0;
+}

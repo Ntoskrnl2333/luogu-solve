@@ -25,15 +25,12 @@ time_t ett;      // 记录结束时间的时间戳
 
 int ds;          // 记录总时长的秒数
 int dm;          // 记录总时长的分钟数
-int p;           // 用于在读取问题编号或源文件时的字符位置
 
 
 int main() {
     // 获取问题编号
     printf("Problem Number: ");
-    p = 0;
-    while ((pn[p] = getchar()) != '\n') p++;
-    pn[p] = 0;
+    get_string(pn);
 
     init();
 
@@ -61,12 +58,15 @@ int main() {
                 if (system(cr1))  // 执行编译命令，如果编译失败，退出编译部分
                     break;
                 line("Running");
-                system(cr2);  // 执行编译后的可执行文件
+		tmp=new char[1024];
+                sprintf(tmp,"Program exited with value %d",system(cr2)); //执行可执行文件
+		line(tmp);
+		delete[] tmp;
                 break;
             case 2:  // 只运行
                 line("Running");
 		tmp=new char[1024];
-                sprintf(tmp,"Program exited with value %d\n",system(cr2));
+                sprintf(tmp,"Program exited with value %d",system(cr2));
 		line(tmp);
 		delete[] tmp;
                 break;
@@ -98,8 +98,7 @@ int main() {
                     printf("\n\n  !!! Failed to open %s !!!", fn);
                     break;
                 }
-                p = 0;
-                while (fscanf(fp, "%c", f + p) != EOF) p++;  // 读取文件内容
+                get_string(f,EOF,fp);  // 读取文件内容
                 fclose(fp);
 
                 // 重新写入文件，附加时间信息
