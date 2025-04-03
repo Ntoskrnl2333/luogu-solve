@@ -26,5 +26,5 @@
 *.a
 *.lib
 
-# Executables
+# Executable
 luogu-solve
