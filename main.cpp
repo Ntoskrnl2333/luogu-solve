@@ -98,8 +98,7 @@ int main() {
                     printf("\n\n  !!! Failed to open %s !!!", fn);
                     break;
                 }
-                p = 0;
-                while (fscanf(fp, "%c", f + p) != EOF) p++;  // 读取文件内容
+                get_string(f,EOF,fp);  // 读取文件内容
                 fclose(fp);
 
                 // 重新写入文件，附加时间信息

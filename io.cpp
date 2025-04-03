@@ -37,7 +37,7 @@ void get_string(char *str,const char stop,FILE *fp){
 		if(ch==stop || ch==EOF)
 			break;
 		*str=ch;
-		*str++;
+		str++;
 	}
 	*str=0;
 }
