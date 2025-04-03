@@ -61,12 +61,15 @@ int main() {
                 if (system(cr1))  // 执行编译命令，如果编译失败，退出编译部分
                     break;
                 line("Running");
-                system(cr2);  // 执行编译后的可执行文件
+		tmp=new char[1024];
+                sprintf(tmp,"Program exited with value %d",system(cr2)); //执行可执行文件
+		line(tmp);
+		delete[] tmp;
                 break;
             case 2:  // 只运行
                 line("Running");
 		tmp=new char[1024];
-                sprintf(tmp,"Program exited with value %d\n",system(cr2));
+                sprintf(tmp,"Program exited with value %d",system(cr2));
 		line(tmp);
 		delete[] tmp;
                 break;
