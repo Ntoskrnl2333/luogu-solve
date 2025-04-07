@@ -59,14 +59,14 @@ int main() {
                     break;
                 line("Running");
 		tmp=new char[1024];
-                sprintf(tmp,"Program exited with value %d",system(cr2)); //执行可执行文件
+                sprintf(tmp,"Program exited with value %d",WEXITSTATUS(system(cr2))); //执行可执行文件
 		line(tmp);
 		delete[] tmp;
                 break;
             case 2:  // 只运行
                 line("Running");
 		tmp=new char[1024];
-                sprintf(tmp,"Program exited with value %d",system(cr2));
+                sprintf(tmp,"Program exited with value %d",WEXITSTATUS(system(cr2)));
 		line(tmp);
 		delete[] tmp;
                 break;
@@ -76,7 +76,7 @@ int main() {
             case 4:  // 使用 gdb 进行调试
                 line("Compiling with debug information");
                 if(system(cg))
-
+			break;
                 line("GDB -- Use 'quit' to exit GDB");
                 system(gc);
                 break;
