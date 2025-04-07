@@ -76,7 +76,7 @@ int main() {
             case 4:  // 使用 gdb 进行调试
                 line("Compiling with debug information");
                 if(system(cg))
-
+			break;
                 line("GDB -- Use 'quit' to exit GDB");
                 system(gc);
                 break;
