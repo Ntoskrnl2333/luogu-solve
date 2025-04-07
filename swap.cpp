@@ -15,8 +15,9 @@ void store_swap(const char *bt, time_t btt) {
 bool load_swap(char *bt, time_t *btt) {
     FILE *swap_fp = fopen(swp, "r");
     bool success=true;
+    char ret[10]="\n";
     if (swap_fp) {
-        printf("Swap file(%s) exists. Do you want to restore the pregress in it? (y/n)",swp);
+        printf("Swap file(%s) exists. Do you want to restore the progress in it? (y/n)",swp);
         char *tmp=new char[1024];
     LABEL_READ:
         scanf("%s",tmp);
@@ -27,8 +28,11 @@ bool load_swap(char *bt, time_t *btt) {
         else
                 goto LABEL_READ;
     LABEL_RESTORE:
-        if (fscanf(swap_fp, "%1023s", bt) != 1 || fscanf(swap_fp, "%ld", btt) != 1) {
-            success=false;
+	get_string(bt,'\n',swap_fp);
+	strcat(bt,ret);
+        if (fscanf(swap_fp, "%ld",btt) != 1) {
+		printf("!!! The format of %s is not correct !!!\n",swp);
+	        success=false;
         }
     LABEL_NORESTORE:
         delete[] tmp;

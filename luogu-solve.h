@@ -5,7 +5,7 @@
 #ifndef _LUOGU_SOLVE_
 #define _LUOGU_SOLVE_
 
-extern void strcat(char *dst,char *src);
+extern void strcat(char *dst,char const *src);
 extern void num2times(int n,char *s); // 将整数转换为序数表示（例如 1 -> "1st", 2 -> "2nd"）
 extern void line(const char *str,bool double_line=false); // 用于输出分隔线的函数,参数 str 为输出的文本，double_line 为是否需要双重分隔线
 extern void clear_buffer(); // 清除输入缓冲区的函数，避免残留字符影响输入读取
